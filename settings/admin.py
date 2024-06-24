@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SiteConfig
+from .models import SiteConfig, Navigation
 
 class SiteConfigAdmin(admin.ModelAdmin):
     search_fields = ('key', 'value')
@@ -8,4 +8,4 @@ class SiteConfigAdmin(admin.ModelAdmin):
     ordering = ('key', 'value')
     
 admin.site.register(SiteConfig,SiteConfigAdmin)
-
+admin.site.register(Navigation)
