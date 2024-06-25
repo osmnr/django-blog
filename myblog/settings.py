@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'contact',
     'user',
     'settings',
+    'translation',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'settings.context_processors.site_config',
+                'settings.context_processors.lang_translations',
             ],
         },
     },
