@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{siteName}} - Test Sayfası</title>
+    <title>{{siteName}} - {{testPageTitle}}</title>
 </head>
 <body>
-    <h1>Test mesajı 2</h1>
+    <h1>{{testPageHeaderText}}</h1>
+
 
     
     {% for nav in navigation_list%}
@@ -17,6 +18,19 @@
         {% endif%}
     {% endfor %}
 
+
+    <form action={% url 'user:setlanguage'%} method="post">
+        {% csrf_token %}
+        <label for="language">Dil / Language:</label>
+        <select id="language" name="language">
+            {% for language in available_langs %}
+            <option value={{ language.id }}>{{language.name}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Seç / Select">
+    </form>
+
+    <h2>Session ID: {{ sessionKey }}</h2>
 
 </body>
 </html>
