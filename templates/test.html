@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{siteName}} - {{testPageTitle}}</title>
+    <title>{{siteName}} - {{lang.testPageTitle}}</title>
 </head>
 <body>
-    <h1>{{testPageHeaderText}}</h1>
+    <h1>{{lang.testPageHeaderText}}</h1>
 
-    
     {% for nav in navigation_list%}
         {% if nav.is_external %}
             <a target='_blank' href="{{nav.url}}">{{nav}}</a>
@@ -17,6 +16,23 @@
         {% endif%}
     {% endfor %}
 
+
+    {#% if available_langs|length > 0 %#}
+    {% if available_langs.count > 0 %}
+        <form method='post' action={% url 'user:setlanguage' %} > 
+            {% csrf_token %}
+            <label for='language'> Language </label>
+                <select id='language' name='language'>
+                    {% for lang in available_langs %}
+                    <option value={{lang.id}}>{{lang.name}}</option>
+                    {% endfor%}
+                </select>
+                <input type='submit' value='SEÇ'>
+        </form>
+    {% endif %}
+
+
+    <h2>Session key =  {{sessionKey}}</h2>
 
 </body>
 </html>
