@@ -1,9 +1,13 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from translation.models import Language
 from .models import LangSession
 
+
 def selected_language(request):
     previous_page = request.META.get('HTTP_REFERER')
+    if not previous_page:
+        previous_page = "blog:test"
+    
     session_key = request.session.session_key
 
     if request.method == 'POST':
@@ -11,9 +15,13 @@ def selected_language(request):
         if selected_language_id:        
             try:
                 language_instance = Language.objects.get(pk=selected_language_id, is_selectable=True)
-                session_language, created = LangSession.objects.get_or_create(session=session_key)
-                session_language.language = language_instance
-                session_language.save()
+                try:
+                    language_selected = LangSession.objects.get(session=session_key)
+                    language_selected.language = language_instance
+                    language_selected.save()
+                
+                except LangSession.DoesNotExist:
+                    language_selected = LangSession.objects.create(session=session_key,language=language_instance )
 
             except Language.DoesNotExist:
                 pass
