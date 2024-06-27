@@ -3,7 +3,7 @@ from .models import LangSession
 
 
 class SelectedLanguageAdmin(admin.ModelAdmin):
-    list_display = ('session', 'language')
+    list_display = ('session', 'language','id')
     
 
 # Register your models here.
