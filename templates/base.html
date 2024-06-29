@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- set the encoding of your site -->
+	<meta charset="utf-8">
+	<!-- set the viewport width and initial-scale on mobile devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+        {{siteName}} - {% block title%}     {% endblock title%}
+    </title>
+	<!-- include the site stylesheet -->
+	<link href='https://fonts.googleapis.com/css?family=Merriweather:300,400,700%7CPoppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
+	<!-- include the site stylesheet -->
+	<link rel="stylesheet" href="{%static 'css/font-awesome.min.css'%}">
+	<!-- include the site stylesheet -->
+	<link rel="stylesheet" href="{%static 'css/bootstrap.css'%}">
+	<!-- include the site stylesheet -->
+	<link rel="stylesheet" href="{%static 'css/animate.css'%}">
+	<!-- include the site stylesheet -->
+	<link rel="stylesheet" href="{%static 'css/slick.css'%}">
+	<!-- include the site stylesheet -->
+	<link rel="stylesheet" href="{%static 'style.css'%}">
+	<!-- include the site stylesheet -->
+	<link rel="stylesheet" href="{%static 'css/responsive.css'%}">
+	<!-- include the site stylesheet -->
+	<link rel="stylesheet" href="{%static 'css/colors.css'%}">
+</head>
+
+<body class="version-ii">
+
+    {% include 'components/loader.html'%} 
+
+
+	<!-- main container of all the page elements -->
+	<div id="wrapper">
+		<!-- w1 of the page -->
+		<div class="w1">
+
+
+			<!-- header of the page -->
+			{% include 'components/header.html' %}
+			<!-- Header of the page end -->
+
+            {% block mainContent %}
+            <!-- Main content of the page will come here -->
+            {% endblock mainContent %}
+			
+			<!-- Main of the page end -->
+			<!-- Aside of the page -->
+			{% include 'components/footer.html'%}
+			<!-- Footer of the page end -->
+			<!-- Back Top of the page -->
+	    	
+		</div>
+	</div>
+	<!-- include jQuery -->
+	<script src="{%static 'js/jquery.js'%}"></script>
+	<!-- include jQuery -->
+    <script src="{%static 'js/plugins.js'%}"></script>
+    <!-- include jQuery -->
+    <script src="{%static 'js/jquery.main.js'%}"></script>
+</body>
+</html>
