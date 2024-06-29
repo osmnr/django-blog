@@ -1,0 +1,83 @@
+// custom variables and override bootstrap variables
+$white:	#fff;
+$gray-base:	#000;
+$clr1:	#999;
+$clr2:	#55575c;
+$clr3:	#191b21;
+$clr4:	#2a2d34;
+$clr5:	#e3e3e3;
+$clr6:	#bababa;
+$clr7:	#5b616f;
+$clr8:	#191a1f;
+$clr9:	#1f2126;
+$clr10:	#f0f0f0;
+$clr11:	#a3a3a3;
+$clr12:	#ebebeb;
+$clr13:	#33353c;
+$clr14:	#7b7b7b;
+$clr15:	#b9b9b9;
+$clr16:	#bbb;
+$clr17:	#2a3f53;
+$clr18:	#f5f5f5;
+$clr19:	#c0c0c0;
+$clr20:	#efefef;
+$clr21:	#e0e0e0;
+$clr22:	#fefeff;
+$clr23:	#22252b;
+$clr24:	#f1f1f1;
+$clr25:	#acacac;
+$clr26:	#8f9092;
+$clr27:	#141414;
+$clr28:	#9a9a9a;
+$clr29:	#a5a5a5;
+$clr30:	#a6a6a6;
+$clr31:	#878787;
+$clr32:	#b3b3b3;
+$clr33:	#b7b7b7;
+$clr34:	#47494f;
+$clr35:	#f2f2f2;
+$clr36:	#979797;
+$clr37:	#b0b0b0;
+$clr38:	#888;
+
+$facebook:	#4a6ea9;
+$twitter:	#2eaef7;
+$google:	#dd493d;
+$linkedin:	#0274b3;
+$pinterest:	#cd2129;
+
+$color:	#f5ab35;
+
+//== Scaffolding
+$body-bg:	$white;
+$text-color:	$clr1;
+
+//== Typography
+$font-family-sans-serif:	"Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-biko:	"biko", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:	"Merriweather", Georgia, "Times New Roman", Times, serif;
+$font-family-base:	$font-family-serif;
+$font-size-base:	14px;
+$font-size-large:	16px;
+$font-size-small:	13px;
+$font-size-h1:	30px;
+$font-size-h2:	18px;
+$line-height-base:	32/14;
+$headings-font-weight:	600;
+$headings-font-family:	$font-family-sans-serif;
+
+//== Media queries breakpoints
+$screen-lg:	1230px;
+
+//== Container sizes
+$container-lg:	1200px;
+
+//== Navbar
+$navbar-height:                    1px;
+$navbar-margin-bottom:             0;
+$navbar-border-radius:             0;
+$navbar-padding-horizontal:        0;
+$navbar-padding-vertical:          0;
+
+//== Breadcrumbs
+$breadcrumb-separator:          ">";
