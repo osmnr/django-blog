@@ -32,15 +32,13 @@ def lang_translations(request):
     translation_list = {}
     
     translationKey_list = TranslationKey.objects.all()
-    
     for translationKey in translationKey_list:
-
         try:
             lang_item = Translation.objects.get(key=translationKey, language=user_language)   
         except Translation.DoesNotExist:
             lang_item = Translation.objects.get(key=translationKey, language=1)
-        
-        translation_list[translationKey.key] = lang_item.value
+    
+    translation_list[translationKey.key] = lang_item.value
     
     data = {
         'lang':translation_list,

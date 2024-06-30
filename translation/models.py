@@ -11,7 +11,7 @@ class Language(models.Model):
 
 
 class TranslationKey(models.Model):
-    key = models.CharField(max_length=255)
+    key = models.CharField(unique=True, max_length=255)
     
     def __str__(self):
         return self.key

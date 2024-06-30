@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+{% block title%}404{% endblock title%}
+
+{% block mainContent%}
+
+<!-- Main of the page -->
+<main id="main" role="main">
+    <!-- Page Head of the page -->
+    <header class="page-head wow fadeInLeft" data-wow-delay="0.6s" style="background-image: url(http://placehold.it/1920x200);">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>404 Error</h1>
+                    <ol class="breadcrumb">
+                        <li><a href="home.html">Home</a></li>
+                        <li class="active">404</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Page Head of the page end -->
+    <!-- Page Error of the page -->
+    <div class="page-error container wow fadeInLeft" data-wow-delay="0.6s">
+        <div class="row">
+            <div class="heading-holder col-xs-12 text-center">
+                <h1>4<span class="text-color">0</span>4 <br><span class="text-small">e&nbsp;r&nbsp;r&nbsp;o&nbsp;r</span></h1>
+                <p>The page your are looking for cannot be found.</p>
+                <strong class="text-block">Try Serching here....</strong>
+                <div class="widget widget_search">
+                    <form method="get" class="search-form" action="#">
+                        <fieldset>
+                            <input type="search" name="s" placeholder="Type to search here">
+                            <button type="button" class="ico-search"></button>
+                        </fieldset>
+                    </form>
+                </div>
+                <strong class="text-block">or</strong>
+                <a href="home.html" class="btn btn-default">Go back to home</a>
+            </div>
+        </div>
+    </div>
+    <!-- Page Error of the page end -->
+</main>
+{% endblock mainContent%}
