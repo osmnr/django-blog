@@ -42,26 +42,9 @@
                     </form>
                 </div>
                 <!-- Widget of the page end -->
-                <!-- Widget of the page -->
-                <section class="widget profile-widget version-ii hidden-lg hidden-md wow fadeInLeft" data-wow-delay="0.6s">
-                    <div class="profile-pic">
-                        <a href="#">
-                            <img src="http://placehold.it/180x180" alt="John Aston">
-                        </a>
-                    </div>
-                    <h3><a href="#"><img src="images/text-jhon-aston.png" alt="jhon aston"></a></h3>
-                    <p>Hi, I am John Aston. Duis autem vel eum dolor in hendrerit in vulputate velit esse mole consequat, vel illum dolore eu feugiat nulla lisis at vero eros et accumsan et iusto.</p>
-                    <!-- Social Network of the page -->
-                    <ul class="social-networks">
-                        <li><a href="#"><span class="icon ico-facebook"></span></a></li>
-                        <li><a href="#"><span class="icon ico-twitter"></span></a></li>
-                        <li><a href="#"><span class="icon ico-google-plus"></span></a></li>
-                        <li><a href="#"><span class="icon ico-linkedin"></span></a></li>
-                        <li><a href="#"><span class="icon ico-pinterest"></span></a></li>
-                    </ul>
-                    <!-- SOcial Network of the page end -->
-                </section>
-                <!-- Widget of the page end -->
+                
+                {% include 'components/profile_mob.html' %}
+
                 <!-- Posts Blocks of the page -->
                 <section class="posts-blocks">
                     <!-- Post Block of the page -->
@@ -184,26 +167,7 @@
             </div>
             <!-- Sidebar of the page -->
             <aside id="sidebar" class="col-xs-12 col-md-4">
-                <!-- Widget of the page -->
-                <section class="widget profile-widget version-ii hidden-sm hidden-xs wow fadeInUp" data-wow-delay="0.6s"">
-                    <div class="profile-pic">
-                        <a href="#">
-                            <img src="http://placehold.it/180x180" alt="John Aston">
-                        </a>
-                    </div>
-                    <h3><a href="#"><img src="images/text-jhon-aston.png" alt="jhon aston"></a></h3>
-                    <p>Hi, I am John Aston. Duis autem vel eum dolor in hendrerit in vulputate velit esse mole consequat, vel illum dolore eu feugiat nulla lisis at vero eros et accumsan et iusto.</p>
-                    <!-- Social Network of the page -->
-                    <ul class="social-networks">
-                        <li><a href="#"><span class="icon ico-facebook"></span></a></li>
-                        <li><a href="#"><span class="icon ico-twitter"></span></a></li>
-                        <li><a href="#"><span class="icon ico-google-plus"></span></a></li>
-                        <li><a href="#"><span class="icon ico-linkedin"></span></a></li>
-                        <li><a href="#"><span class="icon ico-pinterest"></span></a></li>
-                    </ul>
-                    <!-- Social Network of the page -->
-                </section>
-                <!-- Widget of the page end -->
+                {% include 'components/profile.html' %}
                 <!-- Widget of the page -->
                 <div class="widget widget_search hidden-sm hidden-xs wow fadeInUp" data-wow-delay="0.6s"">
                     <form method="get" class="search-form" action="#">

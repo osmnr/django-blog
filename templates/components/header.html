@@ -50,15 +50,13 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="active" data-drop="drop-right">
-                                    <a href="home.html">Home</a>
+                                    <a href="{%url 'blog:home'%}">Home</a>
                                     
                                 </li>
-                                <li data-drop="drop-right">
-                                    <a href="single-post.html">blog</a>
-                                </li>
-                                <li data-drop="drop-right"><a href="archive.html">archive</a></li>
+                            
+                                <li data-drop="drop-right"><a href="{%url 'blog:archive'%}">archive</a></li>
 
-                                <li><a href="contact-us.html">Contact</a></li>
+                                <li><a href="{%url 'contact:contactUs'%}">Contact Us</a></li>
                             </ul>
                         </div>
                         <!-- Collapse of the page end -->
