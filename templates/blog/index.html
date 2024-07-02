@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{{lang.navHomeTitle}} {% endblock title %}
+
 {% block mainContent %}
 <!-- Main of the page -->
 <main id="main" role="main">
@@ -12,7 +13,7 @@
                 {% include 'components/profile_mob.html' %}
                 {% include 'components/blog/post_blog.html' %}
             </div>
-
+            <!-- Content of the page end -->
             <!-- Sidebar of the page -->
             <aside id="sidebar" class="col-xs-12 col-md-4 pull-left">
                 {% include 'components/profile.html' %}                
@@ -24,14 +25,8 @@
             <!-- Sidebar of the page end -->
         </div>
     </div>
-
-
-
     {% include 'components/img_slider.html'%}
-
-
-
 </main>
-
+<!-- Main of the page end -->
 {% endblock mainContent %}
 

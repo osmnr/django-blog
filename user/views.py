@@ -1,6 +1,29 @@
 from django.shortcuts import render, redirect
 from translation.models import Language
 from .models import LangSession
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+
+
+def userLogout(request):
+    if not request.user.is_authenticated:
+        return redirect('blog:home')
+    logout(request)
+    return redirect('user:userLogin')
+
+def userLogin(request):
+    if request.user.is_authenticated:
+        return redirect('blog:home')
+    if request.method == 'POST':
+        inputUserName = request.POST.get('formUserName')
+        inputPassword = request.POST.get('formPassword')
+        user = authenticate(request,username=inputUserName, password=inputPassword)
+        if user is not None:
+            login(request,user)
+            return redirect('blog:home')
+        else:
+            messages.error(request, 'Username or password is not correct...')
+    return render(request,'user/login.html')
 
 
 def selected_language(request):
