@@ -69,8 +69,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'settings.context_processors.site_config',
                 'settings.context_processors.lang_translations',
+                'settings.context_processors.getIPaddress',
             ],
         },
+        
     },
 ]
 

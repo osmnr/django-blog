@@ -1,74 +1,25 @@
     
     <!-- Post slider of the page -->
-    <section class="posts-slider" style="background-image: url(http://placehold.it/1920x550);">
+    <section class="posts-slider" style="background-image: url(https://destinationseekers.co.uk/assets/images/website_188-multiimage_99291_background-itinerary.png-BasicCrop-size-1920x550.jpg);">
         <div class="container">
             <div class="row">
                 <div class="center-slider mask">
                     
-                    <!-- slide of the page -->
+                    {% for singlePost in postList%}
+                         <!-- slide of the page -->
                     <article class="slide">
                         <div class="slide-holder">
                             <div class="img-holder">
-                                <img src="http://placehold.it/340x230" alt="image description">
+                                <img src="{{singlePost.image.url}}" alt="image description">
                             </div>
-                            <h2><a href="single-post.html">I get up in the morning looking for an adventure.</a></h2>
-                            <time datetime="2011-01-12"><a href="#">2nd january, 2016</a></time>
-                            <a href="single-post.html" class="read-more">Continue Reading</a>
+                            <h2><a href="#">{{singlePost.title}}</a></h2>
+                            <time datetime="2011-01-12"><a href="#">{{singlePost.date}}</a></time>
+                            <a href="#" class="read-more">Continue Reading</a>
                         </div>
                     </article>
                     <!-- slide of the page end -->
-
-                    <!-- slide of the page -->
-                    <article class="slide">
-                        <div class="slide-holder">
-                            <div class="img-holder">
-                                <img src="http://placehold.it/340x230" alt="image description">
-                            </div>
-                            <h2><a href="single-post.html">Traveling is awesome if you can enjoy.</a></h2>
-                            <time datetime="2011-01-12"><a href="#">2nd january, 2016</a></time>
-                            <a href="single-post.html" class="read-more">Continue Reading</a>
-                        </div>
-                    </article>
-                    <!-- slide of the page end -->
-
-                    <!-- slide of the page -->
-                    <article class="slide">
-                        <div class="slide-holder">
-                            <div class="img-holder">
-                                <img src="http://placehold.it/340x230" alt="image description">
-                            </div>
-                            <h2><a href="single-post.html">Just think about a world tour to get relax.</a></h2>
-                            <time datetime="2011-01-12"><a href="#">2nd january, 2016</a></time>
-                            <a href="single-post.html" class="read-more">Continue Reading</a>
-                        </div>
-                    </article>
-                    <!-- slide of the page end -->
-
-                    <!-- slide of the page -->
-                    <article class="slide">
-                        <div class="slide-holder">
-                            <div class="img-holder">
-                                <img src="http://placehold.it/340x230" alt="image description">
-                            </div>
-                            <h2><a href="single-post.html">The Pros And Cons Of Travelling By Bicycle.</a></h2>
-                            <time datetime="2011-01-12"><a href="#">2nd january, 2016</a></time>
-                            <a href="single-post.html" class="read-more">Continue Reading</a>
-                        </div>
-                    </article>
-                    <!-- slide of the page end -->
-
-                    <!-- slide of the page -->
-                    <article class="slide">
-                        <div class="slide-holder">
-                            <div class="img-holder">
-                                <img src="http://placehold.it/340x230" alt="image description">
-                            </div>
-                            <h2><a href="single-post.html">Letter from the desk of an unsuccessful designer</a></h2>
-                            <time datetime="2011-01-12"><a href="#">2nd january, 2016</a></time>
-                            <a href="single-post.html" class="read-more">Continue Reading</a>
-                        </div>
-                    </article>
-                    <!-- slide of the page end -->
+                    {% endfor %}
+                   
 
                 </div>
             </div>

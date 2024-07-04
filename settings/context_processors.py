@@ -12,12 +12,23 @@ def site_config(request):
     return data
 
 
+
+def getIPaddress(request):
+    clientIP = request.META.get('HTTP_X_FORWARDED_FOR')
+    if clientIP:
+        ip = clientIP.split(',')[0].strip
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    print('IP : ', ip)
+    return {}
+
+
+
 def lang_translations(request):
     sessionKey = request.session.session_key
     if(not sessionKey):
         request.session.create()
         sessionKey = request.session.session_key
-
     try:
         user_language = LangSession.objects.get(session=sessionKey).language.id
     except LangSession.DoesNotExist:
@@ -41,7 +52,6 @@ def lang_translations(request):
             translation_list[translationKey.key] = lang_item.value
         except Translation.DoesNotExist:
             translation_list[translationKey.key] = translationKey.key
-            
     
     data = {
         'lang':translation_list,
@@ -49,6 +59,5 @@ def lang_translations(request):
         'sessionKey':sessionKey,
         'user_lang_no':user_lang_no,
     }
-
     return data
 

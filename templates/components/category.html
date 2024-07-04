@@ -1,14 +1,14 @@
+{% load custom_tags %}
 <!-- Widget of the page -->
 <div class="widget widget_categories version-ii wow fadeInUp" data-wow-delay="0.6s">
     <header class="widget-head">
-        <h3>Category</h3>
+        <h3>Categories</h3>
     </header>
     <ul>
-        <li class="cat-item cat-item-1"><span><a href="#">- Lifestyle</a></span><span><a href="#">- Lifestyle</a></span></li>
-        <li class="cat-item cat-item-1"><span><a href="#">- Movie</a></span><span><a href="#">- Movie</a></span></li>
-        <li class="cat-item cat-item-1"><span><a href="#">- Travel</a></span><span><a href="#">- Travel</a></span></li>
-        <li class="cat-item cat-item-1"><span><a href="#">- Sports</a></span><span><a href="#">- Sports</a></span></li>
-        <li class="cat-item cat-item-1"><span><a href="#">- Music</a></span><span><a href="#">- Music</a></span></li>
+        {%for item1, item2 in categories|pairElements %}
+        <li class="cat-item cat-item-1"><span><a href="#">{{item1.categoryName}}</a></span><span><a href="#">{{item2.categoryName}}</a></span></li>
+        {% endfor%}
     </ul>
 </div>
 <!-- Widget of the page end -->
+
