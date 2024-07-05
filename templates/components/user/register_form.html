@@ -6,8 +6,7 @@
                 <!-- Comment respond of the page -->
                 <section class="comment-respond contact-form wow fadeInUp" data-wow-delay="0.6s">
                     <header class="header">
-                        <h3 id="reply-title" class="comment-reply-title">Log in here please</h3>
-                        <p>If you forgot your password please contact help@test.com </p>
+                        <h3 id="reply-title" class="comment-reply-title">Register here</h3>
                         {% if messages %}
                         <div class="alert alert-warning" role="alert">
                             {% for message in messages %}
@@ -15,9 +14,7 @@
                             {% endfor %}
                         </div>
                     {% endif %}
-                    </header>
-
-                       
+                    </header>                       
 
                     <form  method="post" class="comment-form">
                         {% csrf_token %}
@@ -26,13 +23,24 @@
                                 <label for="formUserName">Username <span class="required"></span></label>
                                 <input type="text" id="formUserName" name="formUserName" size="30" aria-required="true" placeholder="enter your username here">
                             </div>
+                            <div class="comment-form-author">
+                                <label for="formEmail">Email <span class="required"></span></label>
+                                <input type="text" id="formEmail" name="formEmail" size="30" aria-required="true" placeholder="enter your email address">
+                            </div>
+                        </div>
+                        <div class="wrap form-group">
                             <div class="comment-form-password">
                                 <label for="formPassword">Password <span class="required"></span></label>
                                 <input type="password" id="formPassword" name="formPassword" size="30" aria-required="true" placeholder="enter your password here">
                             </div>
+                            
+                            <div class="comment-form-password">
+                                <label for="formPassword">Password2 <span class="required"></span></label>
+                                <input type="password" id="formPassword2" name="formPassword2" size="30" aria-required="true" placeholder="enter your password again">
+                            </div>
                         </div>
                         <div class="form-submit">
-                            <input type="submit" name="submit" id="submit" value="Log in">
+                            <input type="submit" name="submit" id="submit" value="Register">
                         </div>
                     </form>
                 </section>

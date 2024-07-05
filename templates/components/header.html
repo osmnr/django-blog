@@ -57,6 +57,26 @@
                                 <li data-drop="drop-right"><a href="{%url 'blog:archive'%}">archive</a></li>
 
                                 <li><a href="{%url 'contact:contactUs'%}">Contact Us</a></li>
+
+                                <li data-drop="drop-right"> <a href="#">Profile{% if user.is_authenticated %}({{user.username}}){% endif%}</a>
+                                    <div class="drop" >
+                                        <ul>
+                                            {% if user.is_authenticated %}
+                                            <li >
+                                                <a href="{% url 'user:userLogout'%}">Logout</a>
+                                            </li>
+                                            {% else%}
+                                            <li >
+                                                <a href="{% url 'user:userLogin'%}">Login</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'user:userRegister'%}">Register</a>
+                                            </li>
+                                            {% endif%}
+                                        </ul>
+                                    </div>
+                                    <!-- drop of the page end -->
+                                </li>
                             </ul>
                         </div>
                         <!-- Collapse of the page end -->

@@ -3,6 +3,29 @@ from translation.models import Language
 from .models import LangSession
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.models import User
+
+def userRegister(request):
+    if request.user.is_authenticated:
+        return redirect('blog:home')
+    if request.method == 'POST':
+        inputUserName = request.POST.get('formUserName')
+        inputPassword = request.POST.get('formPassword')
+        inputPassword2 = request.POST.get('formPassword2')
+        inputEmail = request.POST.get('formEmail')
+        if inputPassword == inputPassword2:
+            try:
+                user = User.objects.create_user(username=inputUserName, password=inputPassword, email=inputEmail)
+                user.save()
+                login(request,user)
+                return redirect('blog:home')
+            except Exception as e:
+                messages.error(request,f'error:{str(e)}')
+        else:
+            messages.error(request, 'Passwords do not match..')
+    return render(request,'user/register.html')
+
+
 
 
 def userLogout(request):
@@ -10,6 +33,8 @@ def userLogout(request):
         return redirect('blog:home')
     logout(request)
     return redirect('user:userLogin')
+
+
 
 def userLogin(request):
     if request.user.is_authenticated:

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block title %}Register {% endblock title %}
+
+
+{% block mainContent %}
+
+<!-- Main of the page -->
+<main id="main" role="main">
+    {% include 'components/user/register_header.html'%}
+
+    {% include 'components/user/register_form.html' %}
+
+</main>
+<!-- Main of the page end -->
+ 
+{% endblock mainContent %}

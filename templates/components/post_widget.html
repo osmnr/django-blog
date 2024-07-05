@@ -7,7 +7,7 @@
     <div class="tab-content">
         <div id="tab1">
             <ul>
-                {%for singlePost in postList|slice:":6"%}
+                {%for singlePost in postList|slice:":5"%}
                 <li>
                     <div class="alignleft">
                         <img src="{{singlePost.image.url}}" alt="image description">
@@ -24,7 +24,7 @@
         </div>
         <div id="tab2">
             <ul>
-                {%for singlePost in postList|slice:":-6"%}
+                {%for singlePost in postList|slice:":5"%}
                 <li>
                     <div class="alignleft">
                         <img src="{{singlePost.image.url}}" alt="image description">

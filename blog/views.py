@@ -18,6 +18,7 @@ def detail(request):
     return render(request, 'blog/detail.html')
 
 
+
 def archive(request):
     post_list = BlogPost.objects.all()
     category_list = Category.objects.all()
