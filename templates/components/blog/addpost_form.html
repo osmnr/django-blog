@@ -1,0 +1,62 @@
+<!-- Contact Sec of the page -->
+<div class="contact-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <!-- Comment respond of the page -->
+                <section class="comment-respond contact-form wow fadeInUp" data-wow-delay="0.6s">
+                    <header class="header">
+                        <h3 id="reply-title" class="comment-reply-title">Register here</h3>
+                        {% if messages %}
+                        <div class="alert alert-warning" role="alert">
+                            {% for message in messages %}
+                                <h3>{{ message }}</h3>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    </header>                       
+
+                    <form  method="post" class="comment-form">
+                        {% csrf_token %}
+
+                        <div class="comment-form-comment">
+                            <label for="comment">Title: <span class="required">*</span></label>
+                            <input type="text" id="inputTitle" name="inputTitle" aria-required="true" placeholder="Write your Title here">
+                        </div>
+
+                        <div class="comment-form-comment">
+                            <label for="inputCategory">Category: <span class="required">*</span></label>
+                            <select name="inputCategory" id="inputCategory" >
+                                
+                                {% for category in categories%}
+                                <option value={{category.id}}>{{category.categoryName}}</option>
+                                {% endfor %}
+
+                            </select>
+                        </div>
+
+                        <div class="comment-form-comment">
+                            <label for="inputContent">Content <span class="required">*</span></label>
+                            <textarea id="inputContent" name="inputContent" rows="3" cols="72" aria-required="true" placeholder="Write your message here"></textarea>
+                        </div>
+
+                        <div class="comment-form-comment">
+                            <label for="inputImage">Image <span class="required">*</span></label>
+                            <input type="file" id="inputImage" name="inputImage"  aria-required="true" placeholder="Upload image here">
+                        </div>
+                           
+                        <div class="form-submit">
+                            <input type="submit" name="submit" id="submit" value="Register">
+                        </div>
+                    </form>
+                </section>
+                <!-- Comment respond of the page end -->
+            </div>
+            <aside class="col-xs-12 col-md-4 pull-right">
+                {% include 'components/profile.html'%}
+                {% include 'components/user/iletisim.html'%}
+            </aside>
+        </div>
+    </div>
+</div>
+<!-- Contact Sec of the page end -->

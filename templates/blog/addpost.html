@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block title %}Add Post {% endblock title %}
+
+
+{% block mainContent %}
+
+<!-- Main of the page -->
+<main id="main" role="main">
+    {% include 'components/blog/addpost_header.html'%}
+
+    {% include 'components/blog/addpost_form.html' %}
+
+</main>
+<!-- Main of the page end -->
+ 
+{% endblock mainContent %}

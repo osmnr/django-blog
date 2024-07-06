@@ -18,7 +18,6 @@ class Navigation(models.Model):
     is_active = models.BooleanField(default=False)
     is_external = models.BooleanField(default=False)
 
-
     def __str__(self):
         return self.name
 
