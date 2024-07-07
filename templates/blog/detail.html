@@ -8,14 +8,14 @@
 <!-- Main of the page -->
 <main id="main" role="main">
     <!-- Page Head of the page -->
-    <header class="page-head wow fadeInUp" data-wow-delay="0.6s" style="background-image: url(http://placehold.it/1920x200);">
+    <header class="page-head wow fadeInUp" data-wow-delay="0.6s" style="background-image: url({{post.image.url}});">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h1>Single Post v2</h1>
+                    <h1>{{post.title}}</h1>
                     <ol class="breadcrumb">
                         <li><a href="home.html">Home</a></li>
-                        <li class="active">Single Post</li>
+                        <li class="active">Post</li>
                     </ol>
                 </div>
             </div>
@@ -31,30 +31,26 @@
                     <ul class="list-unstyled carousel">
                         <li>
                             <div class="slide">
-                                <img src="http://placehold.it/685x335" alt="image description">
+                                <img src="{{post.image.url}}" alt="image description">
                             </div>
                         </li>
                         <li>
                             <div class="slide">
-                                <img src="http://placehold.it/685x335" alt="image description">
+                                <img src="{{post.image.url}}" alt="image description">
                             </div>
                         </li>
                     </ul>
                     <!-- Center Block of the page -->	
                     <div class="center-block">
-                        <time datetime="2011-01-12"><a href="#">25th May - Travel</a></time>
-                        <h2><a href="single-postv2.html">Traveling is awesome if you can enjoy.</a></h2>
+                        <time datetime="2011-01-12"><a href="#">{{post.date}} - {{post.category}}</a></time>
+                        <h2><a href="single-postv2.html">{{post.title}}</a></h2>
                         <div class="info">
                             <strong class="text"><span class="icon ico-user"></span><a href="#">David Ramon</a></strong>
                             <strong class="text"><span class="icon ico-comment"></span><a href="#">25 comments</a></strong>
                             <strong class="text"><span class="icon ico-share"></span><a href="#">138 shares</a></strong>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincid untnibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim  veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo cons equat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore</p>
-                        <div class="text-box">
-                            <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram</p>
+                        <p>{{post.content}}</p>
                         </div>
-                        <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigatio nes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus  dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
-                    </div>
                     <!-- Center Block of the page end -->
                 </div>
                 <!-- Single Postv2 of the page end -->
@@ -65,17 +61,27 @@
                     </div>
                     <div class="text-holder">
                         <header>
-                            <h2><a href="#">David Ramon</a></h2>
-                            <span class="subtitle"><a href="#">www.davidramon.com</a></span>
+                            <h2><a href="#">{{post.author}}</a></h2>
+                            <span class="subtitle"><a href="#">www.{{post.author}}.com</a></span>
                         </header>
-                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent.</p>
+                        <p>{{user.userInfo}}</p>
                         <!-- Social Network of the page -->
                         <ul class="social-networks">
-                            <li><a href="#"><span class="ico-facebook"></span></a></li>
-                            <li><a href="#"><span class="ico-twitter"></span></a></li>
-                            <li><a href="#"><span class="ico-google-plus"></span></a></li>
-                            <li><a href="#"><span class="ico-linkedin"></span></a></li>
-                            <li><a href="#"><span class="ico-pinterest"></span></a></li>
+                            {% if user.fb_url %}
+                            <li><a href="{{user.fb_url}}"><span class="ico-facebook"></span></a></li>
+                            {% endif %}
+                            {% if user.tw_url %}
+                            <li><a href="{{user.tw_url}}"><span class="ico-twitter"></span></a></li>
+                            {% endif %}
+                            {% if user.gg_url %}
+                            <li><a href="{{user.gg_url}}"><span class="ico-google-plus"></span></a></li>
+                            {% endif %}
+                            {% if user.ln_url %}
+                            <li><a href="{{user.ln_url}}"><span class="ico-linkedin"></span></a></li>
+                            {% endif %}
+                            {% if user.pi_url %}
+                            <li><a href="{{user.pi_url}}"><span class="ico-pinterest"></span></a></li>
+                            {% endif %}
                         </ul>
                         <!-- Social Network of the page end -->
                     </div>

@@ -6,12 +6,12 @@
     <article class="post-block wow fadeInUp" data-wow-delay="0.6s">
         <div class="post-holder">
             <div class="img-holder">
-                <a href="#"><img src="{{singlePost.image.url}}" alt="image description"></a>
+                <a href="{% url 'blog:detail' singlePost.slug %}"><img src="{{singlePost.image.url}}" alt="image description"></a>
             </div>
-            <time datetime="2011-01-12"><a href="#">{{singlePost.date}}-{{singlePost.category}}</a></time>
-            <h2><a href="#">{{singlePost.title}}</a></h2>
+            <time datetime="2011-01-12"><a href="{% url 'blog:detail' singlePost.slug %}">{{singlePost.date}}-{{singlePost.category}}</a></time>
+            <h2><a href="{% url 'blog:detail' singlePost.slug %}">{{singlePost.title}}</a></h2>
             <p>{{singlePost.content|truncatechars:80}}</p>
-            <a href="#" class="read-more">Read more</a>
+            <a href="{% url 'blog:detail' singlePost.slug %}" class="read-more">Read more</a>
             <footer>
                 <strong class="text comment-count"><span class="icon ico-comment"></span><a href="#">25 comments</a></strong>
                 <strong class="text share-count"><span class="icon ico-share"></span><a href="#">138 shares</a></strong>

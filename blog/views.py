@@ -1,7 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from settings.models import Navigation
 from .models import BlogPost, Category
 from django.contrib.auth.decorators import login_required
+from user.models import UserDetail
+
+
 
 def home(request):
     post_list = BlogPost.objects.all()
@@ -22,8 +25,14 @@ def addpost(request):
     return render(request, 'blog/addpost.html',data)
 
 
-def detail(request):
-    return render(request, 'blog/detail.html')
+def detail(request, slug):
+    post = get_object_or_404(BlogPost, slug=slug)
+    user = UserDetail.objects.get(username=post.author.id)
+    data = {
+        'post':post,
+        'user':user,
+    }
+    return render(request, 'blog/detail.html', data)
 
 
 
