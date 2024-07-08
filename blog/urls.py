@@ -9,3 +9,5 @@ urlpatterns = [
     path('archive/',views.archive,name='archive'),
     path('addpost/',views.addpost, name='addpost'),
 ]
+
+

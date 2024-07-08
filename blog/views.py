@@ -3,7 +3,7 @@ from settings.models import Navigation
 from .models import BlogPost, Category
 from django.contrib.auth.decorators import login_required
 from user.models import UserDetail
-
+from django.contrib import messages
 
 
 def home(request):
@@ -19,6 +19,19 @@ def home(request):
 @login_required
 def addpost(request):
     category_list = Category.objects.all()
+    if request.method =='POST':
+        myAuthor = request.user
+        inputTitle = request.POST.get('inputTitle')
+        inputCategory = request.POST.get('inputCategory')
+        inputCategory = Category.objects.get(id=inputCategory)
+        inputContent = request.POST.get('inputContent')
+        inputImage = request.FILES.get('inputImage')
+        try:
+            a = BlogPost.objects.create(title=inputTitle,author=myAuthor, image=inputImage,content=inputContent, category=inputCategory)
+            a.save()
+            return redirect('blog:home')
+        except BlogPost.DoesNotExist:
+            messages.error(request, 'Inavalid entry')
     data = {
         'categories':category_list,
     }
