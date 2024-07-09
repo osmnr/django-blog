@@ -21,3 +21,21 @@ class UserDetail(models.Model):
 
     def __str__(self):
         return str(self.username)
+    
+
+class Log(models.Model):
+    path = models.CharField(max_length=255)
+    method = models.CharField(max_length=10)
+    requestHeaders = models.TextField()
+    responseHeaders = models.TextField()
+    getParams = models.TextField(null=True, blank=True)
+    postData = models.TextField(null=True, blank=True)
+    senderIP = models.GenericIPAddressField()
+    userAgent = models.CharField(max_length=255)
+    statusCode = models.IntegerField()
+    responseContent = models.TextField()
+    responseTime = models.FloatField()
+    createdAt = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'{self.method} {self.path} - {self.statusCode}'
