@@ -71,6 +71,7 @@ TEMPLATES = [
                 'settings.context_processors.site_config',
                 'settings.context_processors.lang_translations',
                 'settings.context_processors.getIPaddress',
+                'settings.context_processors.forceUserInfoEntry',
             ],
         },
         

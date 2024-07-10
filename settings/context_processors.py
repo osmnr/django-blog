@@ -1,6 +1,9 @@
 from .models import SiteConfig, Navigation
 from translation.models import Translation, TranslationKey, Language
-from user.models import LangSession
+from user.models import LangSession, UserDetail
+from django.shortcuts import redirect
+from django.urls import reverse
+
 
 def site_config(request):
     siteTitle = SiteConfig.objects.get(key='titleBaseName')
@@ -61,3 +64,15 @@ def lang_translations(request):
     }
     return data
 
+
+def forceUserInfoEntry(request):
+    if request.user.is_authenticated:
+        print("request.path:", request.path,"reverse('user:userProfileInfo'): ", reverse('user:userProfileInfo') )
+        if request.path != reverse('user:userProfileInfo') :
+            user = request.user
+            try:
+                a = UserDetail.objects.get(username=user)
+                pass
+            except UserDetail.DoesNotExist:
+                return redirect('user:userProfileInfo')
+    return {'user':user}

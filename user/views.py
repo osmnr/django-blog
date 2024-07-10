@@ -75,3 +75,8 @@ def selected_language(request):
                 pass
 
     return redirect(previous_page)
+
+
+
+def userProfileInfo(request):
+    return render(request,'user/userProfileDetail.html')
