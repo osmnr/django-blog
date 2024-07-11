@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'user.middleware.LoggingMiddleware',
+    'user.middleware.forceUserInfoEntry',
 ]
 
 ROOT_URLCONF = 'myblog.urls'
@@ -71,7 +72,7 @@ TEMPLATES = [
                 'settings.context_processors.site_config',
                 'settings.context_processors.lang_translations',
                 'settings.context_processors.getIPaddress',
-                'settings.context_processors.forceUserInfoEntry',
+                
             ],
         },
         

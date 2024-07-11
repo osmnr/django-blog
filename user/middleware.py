@@ -1,7 +1,11 @@
 from django.utils.deprecation import MiddlewareMixin
-from .models import Log
+from .models import Log, UserDetail
 import time
 from datetime import datetime, timedelta
+from django.urls import reverse
+from django.shortcuts import redirect
+
+""" 
 
 class LoggingMiddleware(MiddlewareMixin):
     def process_request(self, request):
@@ -42,8 +46,25 @@ class LoggingMiddleware(MiddlewareMixin):
     if(now.hour== 19):
         oldThanXmonths = datetime.now() - timedelta(minutes=5)
         x = Log.objects.filter(createdAt__lte = oldThanXmonths).delete()
-
+ """
              
 
     
     
+""" 
+class forceUserInfoEntry(MiddlewareMixin):
+    def process_request(self, request):
+        self.currentPage = request.path
+        self.profilePage = reverse('user:userProfileInfo')
+        self.MyUserDetail = True
+        try:
+            self.myUser = UserDetail.objects.get(username=request.user)
+            self.MyUserDetail = False
+        except UserDetail.DoesNotExist:
+            self.myUser= None
+    
+    def process_response(self, request, response):
+        if self.MyUserDetail:
+            if self.currentPage != self.profilePage:
+                return redirect('user:userProfileInfo')
+ """

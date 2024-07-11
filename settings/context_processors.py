@@ -65,14 +65,21 @@ def lang_translations(request):
     return data
 
 
-def forceUserInfoEntry(request):
+
+
+# context processors içerisinde return redirect kullanılmaz.
+# context processors dict response destekler sadece
+""" def forceUserInfoEntry(request):
     if request.user.is_authenticated:
-        print("request.path:", request.path,"reverse('user:userProfileInfo'): ", reverse('user:userProfileInfo') )
-        if request.path != reverse('user:userProfileInfo') :
-            user = request.user
-            try:
-                a = UserDetail.objects.get(username=user)
-                pass
-            except UserDetail.DoesNotExist:
+        currentPage = request.path
+        profilePage = reverse('user:userProfileInfo')
+        print(f"\n\n request.path = {currentPage}\n\n")
+        print(f" profilePage = {profilePage} \n\n")
+        try:
+            userdetails = UserDetail.objects.get(username=request.user)
+        except UserDetail.DoesNotExist:
+            print("\n\n user detail bulunamadı! \n\n")
+            if (currentPage != profilePage):
                 return redirect('user:userProfileInfo')
-    return {'user':user}
+    return {} """
+
