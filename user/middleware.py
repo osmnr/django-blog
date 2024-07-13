@@ -5,7 +5,6 @@ from datetime import datetime, timedelta
 from django.urls import reverse
 from django.shortcuts import redirect
 
-""" 
 
 class LoggingMiddleware(MiddlewareMixin):
     def process_request(self, request):
@@ -43,11 +42,10 @@ class LoggingMiddleware(MiddlewareMixin):
 
     now = datetime.now()
     print("this is nowwww:", now)
-    if(now.hour== 19):
-        oldThanXmonths = datetime.now() - timedelta(minutes=5)
+    if(now.hour== 22):
+        oldThanXmonths = datetime.now() - timedelta(minutes=1)
         x = Log.objects.filter(createdAt__lte = oldThanXmonths).delete()
- """
-             
+     
 
     
     

@@ -1,7 +1,6 @@
 from .models import SiteConfig, Navigation
 from translation.models import Translation, TranslationKey, Language
 from user.models import LangSession, UserDetail
-from django.shortcuts import redirect
 from django.urls import reverse
 
 

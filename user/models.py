@@ -11,8 +11,8 @@ class LangSession(models.Model):
         return self.session
     
 class UserDetail(models.Model):
-    username = models.OneToOneField(User, on_delete=models.CASCADE)
-    userInfo = models.TextField(max_length=300)
+    username = models.OneToOneField(User, related_name='user_detail', on_delete=models.CASCADE)
+    userInfo = models.TextField(blank=True, null=True)
     fb_url = models.URLField(max_length=100, blank=True, null=True)
     tw_url = models.URLField(max_length=100, blank=True, null=True)
     gg_url = models.URLField(max_length=100, blank=True, null=True)
