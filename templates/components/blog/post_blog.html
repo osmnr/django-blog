@@ -1,7 +1,7 @@
 <!-- Posts Blocks of the page -->
 <section class="posts-blocks">
 
-    {% for singlePost in postList%}
+    {% for singlePost in pageObjects%}
     <!-- Post Block of the page -->
     <article class="post-block wow fadeInUp" data-wow-delay="0.6s">
         <div class="post-holder">
@@ -29,12 +29,20 @@
       <!-- Navigation of the page -->
       <nav role="navigation" class="navigation pagination">
         <div class="nav-links">
-            <a href="#" class="prev page-numbers">Prev post.</a>
-            <a href="#" class="page-numbers current">1</a>
-            <span class="page-numbers">2</span>
-            <span class="page-numbers dots hidden">…</span>
-            <a href="#" class="page-numbers">3</a>
-            <a href="#" class="next page-numbers">NEXT post.</a>
+
+            {% if pageObjects.has_previous %}
+            <a href="?page=1" class="prev page-numbers">First</a>
+            <a href="?page={{pageObjects.previous_page_number}}" class="prev page-numbers">Prev post.</a>
+            {% endif %}
+            
+            
+            <a href="#" class="page-numbers current">{{pageObjects.number}} / {{pageObjects.paginator.num_pages}}</a>
+            
+            {% if pageObjects.has_next %}
+            <a href="?page={{pageObjects.next_page_number}}" class="next page-numbers">NEXT post.</a>
+            <a href="?page={{pageObjects.paginator.num_pages}}" class="prev page-numbers">Last</a>
+            {% endif %}
+
         </div>
     </nav>
     <!-- Navigation of the page end -->

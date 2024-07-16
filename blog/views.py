@@ -4,13 +4,20 @@ from .models import BlogPost, Category
 from django.contrib.auth.decorators import login_required
 from user.models import UserDetail
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 
 def home(request):
     post_list = BlogPost.objects.all()
+    paginator = Paginator(post_list, 3)
+    pageNum = request.GET.get('page')
+    pageObjects = paginator.get_page(pageNum)
+
+
     category_list = Category.objects.all()
     data = {
-        'postList': post_list,
+        'postList':post_list,
+        'pageObjects':pageObjects,
         'categories':category_list,
     }
     return render(request, 'blog/index.html', data)
@@ -51,6 +58,7 @@ def detail(request, slug):
 
 def archive(request):
     post_list = BlogPost.objects.all()
+    #BlogPost.objects.order_by('-createdAt')[:5] tarihe göre çekmek isteseydik.
     category_list = Category.objects.all()
     data = {
         'postList': post_list,
